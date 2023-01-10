@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/jsp
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 2914236880
+
+# 开启mp的日志
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
