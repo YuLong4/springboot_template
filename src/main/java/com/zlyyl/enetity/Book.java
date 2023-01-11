@@ -6,17 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-//@Data
-//@AllArgsConstructor
-//@NoArgsConstructor
-//@ToString
-//public class Book {
-//    private Integer id;
-//    private String type;
-//    private String name;
-//    private String description;
-//}
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
@@ -28,3 +17,16 @@ public class Book {
     private Integer bookcount;
     private String author;
 }
+
+//@Data
+//@AllArgsConstructor
+//@NoArgsConstructor
+//@ToString
+//public class Book {
+//    private Integer id;
+//    private String type;
+//    private String name;
+//    private String description;
+//}
+
+
