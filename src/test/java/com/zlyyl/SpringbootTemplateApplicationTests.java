@@ -13,6 +13,9 @@ class SpringbootTemplateApplicationTests {
     @Autowired
     BookDao bookDao;
 
+    /**
+     * 测试分页
+     */
     @Test
     void testPage(){
         Page<Book> page = new Page<>(1,3);
@@ -34,10 +37,23 @@ class SpringbootTemplateApplicationTests {
     }
 
     /**
-     * 测试乐观锁
+     * 测试逻辑删除
      */
     @Test
     void testDel(){
         bookDao.deleteById(2L);
+    }
+
+    /**
+     * 测试乐观锁
+     */
+    @Test
+    void testLock(){
+        Book book1 = bookDao.selectById(1L);
+        Book book2 = bookDao.selectById(1L);
+        book1.setPrice(60.1);
+        bookDao.updateById(book1);
+        book2.setPrice(70.2);
+        bookDao.updateById(book2);
     }
 }

@@ -1,6 +1,7 @@
 package com.zlyyl.config;
 
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,6 +20,8 @@ public class MyBatisPlusConfig {
                 = new MybatisPlusInterceptor();
         //添加分页拦截器
         mybatisPlusInterceptor.addInnerInterceptor(new PaginationInnerInterceptor());
+        //添加乐观锁的拦截器
+        mybatisPlusInterceptor.addInnerInterceptor(new OptimisticLockerInnerInterceptor());
         return mybatisPlusInterceptor;
     }
 }
