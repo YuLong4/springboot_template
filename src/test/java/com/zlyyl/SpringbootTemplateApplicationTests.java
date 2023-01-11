@@ -15,7 +15,7 @@ class SpringbootTemplateApplicationTests {
 
     @Test
     void testPage(){
-        Page<Book> page = new Page<>(3,3);
+        Page<Book> page = new Page<>(1,3);
         bookDao.selectPage(page, null);
         System.out.println(page);
     }
@@ -31,5 +31,13 @@ class SpringbootTemplateApplicationTests {
         book.setAuthor("Yulong");
         book.setPrice(89.2);
         bookDao.insert(book);
+    }
+
+    /**
+     * 测试乐观锁
+     */
+    @Test
+    void testDel(){
+        bookDao.deleteById(2L);
     }
 }
