@@ -19,4 +19,17 @@ class SpringbootTemplateApplicationTests {
         bookDao.selectPage(page, null);
         System.out.println(page);
     }
+
+    /**
+     * 测试id生成策略
+     */
+    @Test
+    void testSave(){
+        Book book = new Book();
+        book.setName("新增测试书");
+        book.setBookcount(90);
+        book.setAuthor("Yulong");
+        book.setPrice(89.2);
+        bookDao.insert(book);
+    }
 }
