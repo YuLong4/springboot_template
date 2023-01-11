@@ -1,7 +1,9 @@
 package com.zlyyl.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.zlyyl.enetity.Book;
 import com.zlyyl.service.BookService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/books")
+@Slf4j
 public class BookController {
 
     @Autowired
@@ -47,5 +50,19 @@ public class BookController {
         Integer code = bookList != null ? Code.GET_OK : Code.GET_ERR;
         String msg = bookList != null ? "" : "数据查询失败";
         return new Result(code, bookList, msg);
+    }
+
+    /**
+     * 分页功能
+     * 接口:/api/books/page?toPage=X&pageSize=X
+     * 参数:要跳转的页 和 每页的条数
+     */
+    @GetMapping("/page")
+    public Result page(int toPage, int pageSize){
+        log.info("toPage = {}, pageSize = {}", toPage, pageSize);
+
+        Page<Book> pageResult = bookService.selectPage(toPage, pageSize);
+
+        return new Result(Code.GET_OK, pageResult);
     }
 }
