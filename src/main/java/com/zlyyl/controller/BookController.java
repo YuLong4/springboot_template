@@ -31,7 +31,7 @@ public class BookController {
     }
 
     @DeleteMapping("/{id}")
-    public Result delete(@PathVariable Integer id) {
+    public Result delete(@PathVariable Long id) {
         Boolean flag = bookService.delete(id);
         return new Result(flag ? Code.DELETE_OK : Code.DELETE_ERR, flag);
     }

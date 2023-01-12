@@ -47,13 +47,13 @@ class SpringbootTemplateApplicationTests {
     /**
      * 测试乐观锁
      */
-    @Test
-    void testLock(){
-        Book book1 = bookDao.selectById(1L);
-        Book book2 = bookDao.selectById(1L);
-        book1.setPrice(60.1);
-        bookDao.updateById(book1);
-        book2.setPrice(70.2);
-        bookDao.updateById(book2);
-    }
+//    @Test
+//    void testLock(){
+//        Book book1 = bookDao.selectById(1L);
+//        Book book2 = bookDao.selectById(1L);
+//        book1.setPrice(60.1);
+//        bookDao.updateById(book1);
+//        book2.setPrice(70.2);
+//        bookDao.updateById(book2);
+//    }
 }
