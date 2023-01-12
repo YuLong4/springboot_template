@@ -10,7 +10,7 @@ public class SpringbootTemplateApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringbootTemplateApplication.class, args);
-        log.info("项目启动成功");
+        log.info("程序后台启动成功");
     }
 
 }
